@@ -81,6 +81,8 @@
                         <properties>
                           <editable value="false"/>
                           <enabled value="true"/>
+                          <font name="Times New Roman" size="24" style="1"/>
+                          <foreground color="-16729343"/>
                         </properties>
                       </component>
                     </children>

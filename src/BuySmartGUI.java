@@ -185,6 +185,5 @@ public class BuySmartGUI extends JFrame {
         }
         price.setText(null);
         price.append("TOTAL: $" + total);
-
     }
 }
