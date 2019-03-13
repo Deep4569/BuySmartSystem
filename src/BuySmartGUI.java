@@ -11,7 +11,6 @@ public class BuySmartGUI extends JFrame {
 
     private JPanel Root;
     private JButton checkoutButton;
-    private JButton testButton;
     private JTextField searchTextField;
     private JList list1;
     private JButton supplierLoginButton;
@@ -28,10 +27,10 @@ public class BuySmartGUI extends JFrame {
     private JTextArea shoppingCart;
     private Border blackLine, blackLineRight, blackLineLeft;
 
-    JPanel popup = new JPanel(new BorderLayout(5, 5));
+    private JPanel popup = new JPanel(new BorderLayout(5, 5));
 
-    public String[] companies = {"Walmart", "Apple", "BestBuy", "Amazon", "Ebay", "Costco", "Rogers", "Bell"};
-    public String[] possibleSearches = {"iPhone 3G", "iPhone 3GS", "iPhone 4", "iPhone 4S", "iPhone 5", "iPhone 5c", "iPhone 5s", "iPhone 6", "iPhone 6 Plus", "iPhone 6s", "iPhone 6s Plus", "iPhone SE",
+    private String[] companies = {"Walmart", "Apple", "BestBuy", "Amazon", "Ebay", "Costco", "Rogers", "Bell"};
+    private String[] possibleSearches = {"iPhone 3G", "iPhone 3GS", "iPhone 4", "iPhone 4S", "iPhone 5", "iPhone 5c", "iPhone 5s", "iPhone 6", "iPhone 6 Plus", "iPhone 6s", "iPhone 6s Plus", "iPhone SE",
             "iPhone 7", "iPhone 7 Plus", "iPhone 8", "iPhone 8 Plus", "iPhone X", "iPhone XR", "iPhone XS", "iPhone"};
     ArrayList<Item> cartList = new ArrayList<>();
 
@@ -111,6 +110,7 @@ public class BuySmartGUI extends JFrame {
 
                 if (login.checkLogin(username.getText(), pass)) {
                     JOptionPane.showMessageDialog(popup, "Login Successful");
+                    addItemButton();
                 } else {
                     JOptionPane.showMessageDialog(popup, "Login Failed. Try Again.");
                 }
@@ -186,4 +186,12 @@ public class BuySmartGUI extends JFrame {
         price.setText(null);
         price.append("TOTAL: $" + total);
     }
+
+    public void addItemButton(){
+        JButton addItem = new JButton("Add Item");
+        display.add(addItem, BorderLayout.NORTH);
+        revalidate();
+    }
+
+
 }
