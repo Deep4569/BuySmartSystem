@@ -20,10 +20,10 @@
         <SOURCES />
       </library>
     </orderEntry>
-    <orderEntry type="module-library" scope="TEST">
+    <orderEntry type="module-library">
       <library>
         <CLASSES>
-          <root url="jar://$MODULE_DIR$/lib/junit-3.8.2.jar!/" />
+          <root url="jar://$APPLICATION_HOME_DIR$/lib/forms_rt.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
