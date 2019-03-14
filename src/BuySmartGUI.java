@@ -20,8 +20,6 @@ public class BuySmartGUI extends JFrame {
     private JButton checkoutButton;
     private JTextField searchTextField;
     private JList list1;
-    private JButton supplierLoginButton;
-    private JButton adminLoginButton;
     private JScrollPane yeet;
     private JPanel Items;
     private JPanel pic;
@@ -31,7 +29,8 @@ public class BuySmartGUI extends JFrame {
     private JTextArea price;
     private JScrollPane shopList;
     private JPanel shoppingList;
-    private JButton signupButton;
+    private JComboBox dropdown;
+    private JPanel dropdownHolder;
     private Border blackLine, blackLineRight, blackLineLeft;
 
     private JPanel popup = new JPanel(new BorderLayout(5, 5));
@@ -40,19 +39,21 @@ public class BuySmartGUI extends JFrame {
     private String[] possibleSearches = {"iPhone 3G", "iPhone 3GS", "iPhone 4", "iPhone 4S", "iPhone 5", "iPhone 5c", "iPhone 5s", "iPhone 6", "iPhone 6 Plus", "iPhone 6s", "iPhone 6s Plus", "iPhone SE",
             "iPhone 7", "iPhone 7 Plus", "iPhone 8", "iPhone 8 Plus", "iPhone X", "iPhone XR", "iPhone XS", "iPhone"};
     ArrayList<Item> cartList = new ArrayList<>();
-
+    private String[] options = {"Signup", "Login", "Supplier Login", "Admin Login"};
 
     public BuySmartGUI() throws IOException {
         add(Root);
         Root.setBackground(Color.white);
-        setSize(1000, 700);
+        setSize(800, 500);
         Items.setLayout(new BoxLayout(Items, BoxLayout.Y_AXIS));
         yeet.getVerticalScrollBar().setUnitIncrement(16);
         shopList.getVerticalScrollBar().setUnitIncrement(16);
         blackLine = BorderFactory.createMatteBorder(0, 0, 1, 0, Color.BLACK);
         blackLineLeft = BorderFactory.createMatteBorder(0, 1, 0, 0, Color.BLACK);
         blackLineRight = BorderFactory.createMatteBorder(0, 0, 0, 1, Color.BLACK);
-
+        dropdown.setModel(new DefaultComboBoxModel(options));
+        dropdownHolder.setLayout(new BorderLayout());
+        dropdownHolder.add(dropdown, BorderLayout.CENTER);
         Login login = new Login();
         User user = new User();
 
@@ -99,105 +100,67 @@ public class BuySmartGUI extends JFrame {
             }
         });
 
-
-        supplierLoginButton.addActionListener(new ActionListener() {
+        dropdown.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                int idx = dropdown.getSelectedIndex();
                 popup.removeAll();
                 JPanel label = new JPanel(new GridLayout(0, 1, 2, 2));
                 label.add(new JLabel("Username"));
                 label.add(new JLabel("Password"));
-                popup.add(label, BorderLayout.WEST);
-
                 JPanel controls = new JPanel(new GridLayout(0, 1, 2, 2));
                 JTextField username = new JTextField();
                 controls.add(username);
                 JPasswordField password = new JPasswordField();
                 controls.add(password);
-                popup.add(controls, BorderLayout.CENTER);
-                JOptionPane.showConfirmDialog(Root, popup, "login", JOptionPane.OK_CANCEL_OPTION);
-                String pass = new String(password.getPassword());
 
-                if (login.checkLogin(username.getText(), pass)) {
-                    JOptionPane.showMessageDialog(popup, "Login Successful");
-                    addItemButton();
-                    username.setText(null);
-                    password.setText(null);
-                } else {
-                    JOptionPane.showMessageDialog(popup, "Login Failed. Try Again.");
-                    username.setText(null);
-                    password.setText(null);
-                }
-            }
-        });
+                if (idx == 0) {
+                    label.add(new JLabel("Confirm Password"));
+                    popup.add(label, BorderLayout.WEST);
+                    JPasswordField password2 = new JPasswordField();
+                    controls.add(password2);
+                    popup.add(controls, BorderLayout.CENTER);
+                    JOptionPane.showConfirmDialog(Root, popup, "Signup", JOptionPane.OK_CANCEL_OPTION);
+                    String pass = new String(password.getPassword());
+                    String confirmPassword = new String(password2.getPassword());
 
-        adminLoginButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                popup.removeAll();
-                JPanel label = new JPanel(new GridLayout(0, 1, 2, 2));
-                label.add(new JLabel("Username"));
-                label.add(new JLabel("Password"));
-                popup.add(label, BorderLayout.WEST);
-
-                JPanel controls = new JPanel(new GridLayout(0, 1, 2, 2));
-                JTextField username = new JTextField();
-                controls.add(username);
-                JPasswordField password = new JPasswordField();
-                controls.add(password);
-                popup.add(controls, BorderLayout.CENTER);
-                JOptionPane.showConfirmDialog(Root, popup, "login", JOptionPane.OK_CANCEL_OPTION);
-                String pass = new String(password.getPassword());
-
-                if (login.checkLogin(username.getText(), pass)) {
-                    JOptionPane.showMessageDialog(popup, "Login Successful");
-                } else {
-                    JOptionPane.showMessageDialog(popup, "Login Failed. Try Again.");
-                }
-            }
-        });
-
-
-        signupButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                popup.removeAll();
-                JPanel label = new JPanel(new GridLayout(0, 1, 2, 2));
-                label.add(new JLabel("Username"));
-                label.add(new JLabel("Password"));
-                label.add(new JLabel("Confirm Password"));
-                popup.add(label, BorderLayout.WEST);
-
-                JPanel controls = new JPanel(new GridLayout(0, 1, 2, 2));
-                JTextField username = new JTextField();
-                controls.add(username);
-                JPasswordField password = new JPasswordField();
-                controls.add(password);
-                JPasswordField password2 = new JPasswordField();
-                controls.add(password2);
-                popup.add(controls, BorderLayout.CENTER);
-                JOptionPane.showConfirmDialog(Root, popup, "Signup", JOptionPane.OK_CANCEL_OPTION);
-                String pass = new String(password.getPassword());
-                String confirmPassword = new String(password2.getPassword());
-
-                if (user.checkPassword(pass, confirmPassword)) {
-
-                    try {
-                        if (user.registerUser(username.getText(), pass)) {
-                            JOptionPane.showMessageDialog(popup, "Signup Successful");
-                        } else {
-                            JOptionPane.showMessageDialog(popup, "Username Taken or your username contains Special Characters");
+                    if (user.checkPassword(pass, confirmPassword)) {
+                        try {
+                            if (user.registerUser(username.getText(), pass)) {
+                                JOptionPane.showMessageDialog(popup, "Signup Successful");
+                            } else {
+                                JOptionPane.showMessageDialog(popup, "Username Taken or your username contains Special Characters");
+                            }
+                        } catch (IOException e1) {
+                            e1.printStackTrace();
                         }
-                    } catch (IOException e1) {
-                        e1.printStackTrace();
+                    } else {
+                        JOptionPane.showMessageDialog(popup, "The two passwords do not match. Please try again.");
                     }
-                } else {
-                    JOptionPane.showMessageDialog(popup, "The two passwords do not match. Please try again.");
                 }
 
+                //TODO: check for the different types of logins if time permits
+                else {
+                    popup.add(label, BorderLayout.WEST);
 
+                    popup.add(controls, BorderLayout.CENTER);
+                    JOptionPane.showConfirmDialog(Root, popup, "login", JOptionPane.OK_CANCEL_OPTION);
+                    String pass = new String(password.getPassword());
+
+                    if (login.checkLogin(username.getText(), pass)) {
+                        JOptionPane.showMessageDialog(popup, "Login Successful");
+                        addItemButton();
+                        JButton x = new JButton("Logout");
+                        dropdownHolder.add(x);
+                        dropdownHolder.remove(dropdown);
+                        revalidate();
+                    } else {
+                        JOptionPane.showMessageDialog(popup, "Login Failed. Try Again.");
+                    }
+                }
             }
         });
+
     }
 
     public void addItem(Item i, int num) {
@@ -319,7 +282,7 @@ public class BuySmartGUI extends JFrame {
         shoppingList.setLayout(new GridLayoutManager(1, 1, new Insets(0, 0, 0, 0), -1, -1));
         shopList.setViewportView(shoppingList);
         search = new JPanel();
-        search.setLayout(new GridLayoutManager(5, 1, new Insets(0, 0, 0, 0), -1, -1));
+        search.setLayout(new GridLayoutManager(2, 1, new Insets(0, 0, 0, 0), -1, -1));
         search.setBackground(new Color(-1));
         Root.add(search, new GridConstraints(0, 0, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_BOTH, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, null, null, null, 0, false));
         pic = new JPanel();
@@ -328,6 +291,11 @@ public class BuySmartGUI extends JFrame {
         pic.setEnabled(true);
         pic.setForeground(new Color(-1));
         search.add(pic, new GridConstraints(1, 0, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_BOTH, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, null, null, null, 0, false));
+        dropdownHolder = new JPanel();
+        dropdownHolder.setLayout(new BorderLayout(0, 0));
+        pic.add(dropdownHolder, BorderLayout.SOUTH);
+        dropdown = new JComboBox();
+        dropdownHolder.add(dropdown, BorderLayout.CENTER);
         searchTextField = new JTextField();
         searchTextField.setBackground(new Color(-1));
         searchTextField.setEnabled(true);
@@ -335,19 +303,6 @@ public class BuySmartGUI extends JFrame {
         searchTextField.setText("Search");
         searchTextField.setToolTipText("Enter what you want to find here");
         search.add(searchTextField, new GridConstraints(0, 0, 1, 1, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_WANT_GROW, GridConstraints.SIZEPOLICY_FIXED, null, new Dimension(150, -1), null, 0, false));
-        supplierLoginButton = new JButton();
-        supplierLoginButton.setBackground(new Color(-1));
-        supplierLoginButton.setForeground(new Color(-16777216));
-        supplierLoginButton.setText("Supplier Login");
-        search.add(supplierLoginButton, new GridConstraints(3, 0, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
-        adminLoginButton = new JButton();
-        adminLoginButton.setBackground(new Color(-1));
-        adminLoginButton.setForeground(new Color(-16777216));
-        adminLoginButton.setText("Admin Login");
-        search.add(adminLoginButton, new GridConstraints(4, 0, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
-        signupButton = new JButton();
-        signupButton.setText("Signup");
-        search.add(signupButton, new GridConstraints(2, 0, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         display = new JPanel();
         display.setLayout(new BorderLayout(0, 0));
         display.setBackground(new Color(-1));
@@ -390,4 +345,7 @@ public class BuySmartGUI extends JFrame {
         return Root;
     }
 
+    private void createUIComponents() {
+        // TODO: place custom component creation code here
+    }
 }
