@@ -5,12 +5,14 @@ import javax.swing.*;
 import javax.swing.border.Border;
 import javax.swing.border.CompoundBorder;
 import javax.swing.border.EmptyBorder;
+import javax.swing.text.MaskFormatter;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.io.IOException;
+import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -31,6 +33,7 @@ public class BuySmartGUI extends JFrame {
     private JPanel shoppingList;
     private JComboBox dropdown;
     private JPanel dropdownHolder;
+    private JButton addItem;
     private Border blackLine, blackLineRight, blackLineLeft;
 
     private JPanel popup = new JPanel(new BorderLayout(5, 5));
@@ -43,6 +46,8 @@ public class BuySmartGUI extends JFrame {
 
     private int total = 0;
 
+    Login login = new Login();
+    User user = new User();
 
     public BuySmartGUI() throws IOException {
         add(Root);
@@ -57,8 +62,6 @@ public class BuySmartGUI extends JFrame {
         dropdown.setModel(new DefaultComboBoxModel(options));
         dropdownHolder.setLayout(new BorderLayout());
         dropdownHolder.add(dropdown, BorderLayout.CENTER);
-        Login login = new Login();
-        User user = new User();
 
         shoppingList.setLayout(new BoxLayout(shoppingList, BoxLayout.Y_AXIS));
         search.setBorder((new CompoundBorder(blackLineRight, new EmptyBorder(0, 0, 0, 10))));
@@ -119,18 +122,48 @@ public class BuySmartGUI extends JFrame {
 
                 if (idx == 0) {
                     label.add(new JLabel("Confirm Password"));
+                    label.add(new JLabel("Address"));
+                    label.add(new JLabel("Phone Number"));
                     popup.add(label, BorderLayout.WEST);
                     JPasswordField password2 = new JPasswordField();
                     controls.add(password2);
+
+                    JTextField address = new JTextField();
+                    controls.add(address);
+
+                    MaskFormatter mask = null;
+                    try {
+                        mask = new MaskFormatter("###-###-####");
+                    } catch (ParseException e1) {
+                        e1.printStackTrace();
+                    }
+                    JFormattedTextField phone = new JFormattedTextField(mask);
+                    controls.add(phone);
+
                     popup.add(controls, BorderLayout.CENTER);
                     JOptionPane.showConfirmDialog(Root, popup, "Signup", JOptionPane.OK_CANCEL_OPTION);
                     String pass = new String(password.getPassword());
                     String confirmPassword = new String(password2.getPassword());
-
                     if (user.checkPassword(pass, confirmPassword)) {
                         try {
-                            if (user.registerUser(username.getText(), pass)) {
+                            if (user.registerUser(username.getText(), pass, address.getText(), phone.getText())) {
                                 JOptionPane.showMessageDialog(popup, "Signup Successful");
+                                user.currentUser = username.getText();
+                                JButton logout = new JButton("Logout");
+                                logout.addActionListener(new ActionListener() {
+                                    @Override
+                                    public void actionPerformed(ActionEvent e) {
+                                        dropdownHolder.removeAll();
+                                        dropdownHolder.add(dropdown);
+                                        display.remove(addItem);
+                                        user.currentUser = null;
+                                        revalidate();
+                                    }
+                                });
+                                dropdownHolder.add(logout);
+                                dropdownHolder.remove(dropdown);
+                                addItemButton();
+                                revalidate();
                             } else {
                                 JOptionPane.showMessageDialog(popup, "Username Taken or your username contains Special Characters");
                             }
@@ -142,7 +175,7 @@ public class BuySmartGUI extends JFrame {
                     }
                 }
 
-                //TODO: check for the different types of logins if time permits
+                //TODO: check for the different types of login if time permits
                 else {
                     popup.add(label, BorderLayout.WEST);
 
@@ -150,16 +183,32 @@ public class BuySmartGUI extends JFrame {
                     JOptionPane.showConfirmDialog(Root, popup, "login", JOptionPane.OK_CANCEL_OPTION);
                     String pass = new String(password.getPassword());
 
-                    if (login.checkLogin(username.getText(), pass)) {
-                        JOptionPane.showMessageDialog(popup, "Login Successful");
-                        addItemButton();
-                        JButton x = new JButton("Logout");
-                        dropdownHolder.add(x);
-                        dropdownHolder.remove(dropdown);
-                        revalidate();
-                    } else {
-                        JOptionPane.showMessageDialog(popup, "Login Failed. Try Again.");
+                    try {
+                        if (login.checkLogin(username.getText(), pass)) {
+                            JOptionPane.showMessageDialog(popup, "Login Successful");
+                            addItemButton();
+                            JButton logout = new JButton("Logout");
+                            logout.addActionListener(new ActionListener() {
+                                @Override
+                                public void actionPerformed(ActionEvent e) {
+                                    dropdownHolder.removeAll();
+                                    dropdownHolder.add(dropdown);
+                                    display.remove(addItem);
+                                    user.currentUser = null;
+                                    revalidate();
+                                }
+                            });
+                            dropdownHolder.add(logout);
+                            dropdownHolder.remove(dropdown);
+                            user.currentUser = login.username;
+                            revalidate();
+                        } else {
+                            JOptionPane.showMessageDialog(popup, "Login Failed. Try Again.");
+                        }
+                    } catch (IOException e1) {
+                        e1.printStackTrace();
                     }
+
                 }
             }
         });
@@ -210,7 +259,6 @@ public class BuySmartGUI extends JFrame {
             delete.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
-                    System.out.println(shoppingList.getComponents().length);
                     if (shoppingList.getComponents().length == 1) {
                         shoppingList.removeAll();
                         cartList.remove(item);
@@ -236,7 +284,79 @@ public class BuySmartGUI extends JFrame {
     }
 
     public void addItemButton() {
-        JButton addItem = new JButton("Add Item");
+        addItem = new JButton("Edit Profile");
+        addItem.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                popup.removeAll();
+                JPanel label = new JPanel(new GridLayout(0, 1, 2, 2));
+                label.add(new JLabel("Change"));
+                JPanel controls = new JPanel(new GridLayout(0, 1, 2, 2));
+                JComboBox<String> choices = new JComboBox<String>(new String[]{"Username", "Password", "Address", "Phone Number"});
+                controls.add(choices);
+                popup.add(label, BorderLayout.WEST);
+                popup.add(controls, BorderLayout.CENTER);
+                JOptionPane.showConfirmDialog(Root, popup, "Edit Profile", JOptionPane.OK_CANCEL_OPTION);
+
+
+                int idx = choices.getSelectedIndex();
+                popup.removeAll();
+                label.removeAll();
+                controls.removeAll();
+                label = new JPanel(new GridLayout(0, 1, 2, 2));
+                String[] x = {"Username", "Password", "Address", "Phone Number"};
+                label.add(new JLabel("New " + x[idx]));
+                controls = new JPanel(new GridLayout(0, 1, 2, 2));
+                if (idx == 0 || idx == 2) {
+                    JTextField update = new JTextField();
+                    controls.add(update);
+                    popup.add(label, BorderLayout.WEST);
+                    popup.add(controls, BorderLayout.CENTER);
+                    JOptionPane.showConfirmDialog(Root, popup, "New " + x[idx], JOptionPane.OK_CANCEL_OPTION);
+                    try {
+                        if (idx == 0) {
+                            user.setUsername(update.getText());
+                        } else {
+                            user.setAddress(update.getText());
+                        }
+                    } catch (IOException e1) {
+                        e1.printStackTrace();
+                    }
+                } else if (idx == 1) {
+                    JPasswordField password = new JPasswordField();
+                    controls.add(password);
+
+                    popup.add(label, BorderLayout.WEST);
+                    popup.add(controls, BorderLayout.CENTER);
+
+                    JOptionPane.showConfirmDialog(Root, popup, "New " + x[idx], JOptionPane.OK_CANCEL_OPTION);
+                    try {
+                        user.setPassword(new String(password.getPassword()));
+                    } catch (IOException e1) {
+                        e1.printStackTrace();
+                    }
+                } else {
+                    MaskFormatter mask = null;
+                    try {
+                        mask = new MaskFormatter("###-###-####");
+                    } catch (ParseException e1) {
+                        e1.printStackTrace();
+                    }
+                    JFormattedTextField phone = new JFormattedTextField(mask);
+                    controls.add(phone);
+
+                    popup.add(label, BorderLayout.WEST);
+                    popup.add(controls, BorderLayout.CENTER);
+
+                    JOptionPane.showConfirmDialog(Root, popup, "New" + x[idx], JOptionPane.OK_CANCEL_OPTION);
+                    try {
+                        user.setPhone(phone.getText());
+                    } catch (IOException e1) {
+                        e1.printStackTrace();
+                    }
+                }
+            }
+        });
         display.add(addItem, BorderLayout.NORTH);
         revalidate();
     }
