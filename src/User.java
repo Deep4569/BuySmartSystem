@@ -54,6 +54,15 @@ public class User {
 
     public boolean checkPassword(String p1, String p2){ return p1.equals(p2); }
 
+    public void setUserInfo(){
+
+    }
+
+
+
+
+
+
 
 
 

@@ -41,6 +41,9 @@ public class BuySmartGUI extends JFrame {
     ArrayList<Item> cartList = new ArrayList<>();
     private String[] options = {"Signup", "Login", "Supplier Login", "Admin Login"};
 
+    private int total = 0;
+
+
     public BuySmartGUI() throws IOException {
         add(Root);
         Root.setBackground(Color.white);
@@ -191,7 +194,7 @@ public class BuySmartGUI extends JFrame {
     }
 
     public void addToCart(Item i) {
-        int total = 0;
+        total = 0;
         cartList.add(i);
 
         shoppingList.removeAll();
@@ -204,7 +207,24 @@ public class BuySmartGUI extends JFrame {
             shoppingCart.append("(" + item.getSeller() + ")\n");
             shoppingCart.append("\n");
             JButton delete = new JButton("Delete");
-
+            delete.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    System.out.println(shoppingList.getComponents().length);
+                    if (shoppingList.getComponents().length == 1) {
+                        shoppingList.removeAll();
+                        cartList.remove(item);
+                    } else {
+                        shoppingList.remove(stuff);
+                        cartList.remove(item);
+                    }
+                    total -= item.getPrice();
+                    price.setText(null);
+                    price.append("TOTAL: $" + total);
+                    revalidate();
+                    repaint();
+                }
+            });
             stuff.add(shoppingCart, BorderLayout.CENTER);
             stuff.add(delete, BorderLayout.EAST);
             shoppingList.add(stuff);
