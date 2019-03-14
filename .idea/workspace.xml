@@ -2,21 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e02fd144-b35c-4806-8a7d-992ee9192901" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/BuySmartSystem/BuySmartGUI$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/BuySmartSystem/BuySmartGUI$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/BuySmartSystem/BuySmartGUI$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/BuySmartSystem/BuySmartGUI$2.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/BuySmartSystem/BuySmartGUI$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/BuySmartSystem/BuySmartGUI$3.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/BuySmartSystem/BuySmartGUI$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/BuySmartSystem/BuySmartGUI$4.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/BuySmartSystem/BuySmartGUI$5.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/BuySmartSystem/BuySmartGUI$6.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/BuySmartSystem/BuySmartGUI.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/BuySmartSystem/BuySmartGUI.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/BuySmartSystem/Item.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/BuySmartSystem/Item.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/BuySmartSystem/Login.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/BuySmartSystem/Login.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/BuySmartSystem/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/BuySmartSystem/Main.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/BuySmartSystem/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/BuySmartSystem/User.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/BuySmartGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BuySmartGUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/buySmartGUI.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/buySmartGUI.form" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -53,19 +48,28 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/BuySmartGUI.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="244">
-              <caret line="63" column="28" selection-start-line="63" selection-start-column="28" selection-end-line="63" selection-end-column="28" />
+            <state relative-caret-position="238">
+              <caret line="46" column="17" selection-start-line="46" selection-start-column="17" selection-end-line="46" selection-end-column="17" />
               <folding>
                 <element signature="e#2762#2926#0" expanded="true" />
                 <element signature="e#2925#2926#0" expanded="true" />
                 <element signature="e#7832#7833#0" expanded="true" />
                 <element signature="e#7876#7877#0" expanded="true" />
                 <element signature="initializer##0;class#BuySmartGUI#0" expanded="true" />
-                <element signature="e#17518#17519#0" expanded="true" />
+                <element signature="e#17350#17351#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/Login.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <caret column="16" selection-start-column="16" selection-end-column="16" />
             </state>
           </provider>
         </entry>
@@ -179,7 +183,7 @@
     <property name="UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.SHOW" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1552531989362" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1552532071218" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit3" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.Arquillian JUnit4" value="" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit3" value="junit.framework.TestCase" />
@@ -272,16 +276,23 @@
       <workItem from="1552494674649" duration="11899000" />
       <workItem from="1552511578884" duration="6609000" />
       <workItem from="1552522507463" duration="2459000" />
-      <workItem from="1552529131016" duration="2677000" />
+      <workItem from="1552529131016" duration="2920000" />
     </task>
+    <task id="LOCAL-00001" summary="Fixed the ugly buttons">
+      <created>1552532053995</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1552532053995</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="54583000" />
+    <option name="totallyTimeSpent" value="54826000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1096" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.21002132" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -292,13 +303,13 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32872504" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.24091381" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.24091381" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.3997923" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="8" weight="0.32872504" />
+      <window_info active="true" anchor="bottom" id="Version Control" order="8" visible="true" weight="0.3281412" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
       <window_info anchor="bottom" id="Terminal" order="10" weight="0.32872504" />
       <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
@@ -316,6 +327,10 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Fixed the ugly buttons" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed the ugly buttons" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/pictures/iPhone 3G.png">
@@ -344,13 +359,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/.project">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Login.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="16" selection-start-column="16" selection-end-column="16" />
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Main.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -387,18 +395,35 @@
     <entry file="file://$PROJECT_DIR$/src/buySmartGUI.form">
       <provider selected="true" editor-type-id="ui-designer" />
     </entry>
+    <entry file="jar://C:/Program Files/Java/jdk-10.0.2/lib/src.zip!/java.desktop/javax/swing/ImageIcon.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="235">
+          <caret line="216" selection-start-line="216" selection-end-line="216" />
+          <folding>
+            <element signature="e#6742#6743#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/BuySmartGUI.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="244">
-          <caret line="63" column="28" selection-start-line="63" selection-start-column="28" selection-end-line="63" selection-end-column="28" />
+        <state relative-caret-position="238">
+          <caret line="46" column="17" selection-start-line="46" selection-start-column="17" selection-end-line="46" selection-end-column="17" />
           <folding>
             <element signature="e#2762#2926#0" expanded="true" />
             <element signature="e#2925#2926#0" expanded="true" />
             <element signature="e#7832#7833#0" expanded="true" />
             <element signature="e#7876#7877#0" expanded="true" />
             <element signature="initializer##0;class#BuySmartGUI#0" expanded="true" />
-            <element signature="e#17518#17519#0" expanded="true" />
+            <element signature="e#17350#17351#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Login.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="16" selection-start-column="16" selection-end-column="16" />
         </state>
       </provider>
     </entry>
