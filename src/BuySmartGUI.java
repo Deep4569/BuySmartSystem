@@ -73,12 +73,14 @@ public class BuySmartGUI extends JFrame {
                 searchTextField.setText("");
             }
         });
+
         searchTextField.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
 
                 if (Arrays.asList(possibleSearches).contains(searchTextField.getText())) {
                     pic.removeAll();
+                    pic.add(dropdownHolder, BorderLayout.SOUTH);
                     Items.removeAll();
                     Item x = new Item(searchTextField.getText());
                     pic.add(x.getImage(), BorderLayout.CENTER);

@@ -1,7 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e02fd144-b35c-4806-8a7d-992ee9192901" name="Default Changelist" comment="" />
+    <list default="true" id="e02fd144-b35c-4806-8a7d-992ee9192901" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/BuySmartSystem/BuySmartGUI$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/BuySmartSystem/BuySmartGUI$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/BuySmartSystem/BuySmartGUI$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/BuySmartSystem/BuySmartGUI$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/BuySmartSystem/BuySmartGUI$3$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/BuySmartSystem/BuySmartGUI$3$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/BuySmartSystem/BuySmartGUI$3$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/BuySmartSystem/BuySmartGUI$3$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/BuySmartSystem/BuySmartGUI$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/BuySmartSystem/BuySmartGUI$3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/BuySmartSystem/BuySmartGUI$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/BuySmartSystem/BuySmartGUI$4.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/BuySmartSystem/BuySmartGUI$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/BuySmartSystem/BuySmartGUI$5.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/BuySmartSystem/BuySmartGUI$6.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/BuySmartSystem/BuySmartGUI$6.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/BuySmartSystem/BuySmartGUI.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/BuySmartSystem/BuySmartGUI.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/BuySmartSystem/Item.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/BuySmartSystem/Item.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/BuySmartSystem/ItemTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/BuySmartSystem/ItemTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/BuySmartSystem/Login.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/BuySmartSystem/Login.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/BuySmartSystem/LoginTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/BuySmartSystem/LoginTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/BuySmartSystem/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/BuySmartSystem/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/BuySmartSystem/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/BuySmartSystem/User.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/BuySmartSystem/buySmartGUI.form" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/BuySmartSystem/buySmartGUI.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/BuySmartSystem/com/intellij/uiDesigner/core/AbstractLayout.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/BuySmartSystem/com/intellij/uiDesigner/core/DimensionInfo.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/BuySmartSystem/com/intellij/uiDesigner/core/GridConstraints.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/BuySmartSystem/com/intellij/uiDesigner/core/GridLayoutManager.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/BuySmartSystem/com/intellij/uiDesigner/core/HorizontalInfo.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/BuySmartSystem/com/intellij/uiDesigner/core/LayoutState.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/BuySmartSystem/com/intellij/uiDesigner/core/Spacer.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/BuySmartSystem/com/intellij/uiDesigner/core/SupportCode$TextWithMnemonic.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/BuySmartSystem/com/intellij/uiDesigner/core/SupportCode.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/BuySmartSystem/com/intellij/uiDesigner/core/Util.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/BuySmartSystem/com/intellij/uiDesigner/core/VerticalInfo.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/BuySmartGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BuySmartGUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ItemTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ItemTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/users.txt" beforeDir="false" afterPath="$PROJECT_DIR$/users.txt" afterDir="false" />
+    </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -40,8 +73,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/BuySmartGUI.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-68">
-              <caret line="340" column="50" lean-forward="true" selection-start-line="340" selection-start-column="50" selection-end-line="340" selection-end-column="50" />
+            <state relative-caret-position="335">
+              <caret line="82" column="62" selection-start-line="82" selection-start-column="62" selection-end-line="82" selection-end-column="62" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#2911#3075#0" expanded="true" />
@@ -61,22 +94,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Login.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="14" column="76" selection-start-line="14" selection-start-column="76" selection-end-line="14" selection-end-column="76" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/LoginTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="14" column="8" lean-forward="true" selection-start-line="14" selection-start-column="8" selection-end-line="14" selection-end-column="56" />
+            <state relative-caret-position="221">
+              <caret line="13" column="18" selection-start-line="13" selection-start-column="18" selection-end-line="13" selection-end-column="18" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -88,7 +109,7 @@
         <entry file="file://$PROJECT_DIR$/src/Item.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="530">
-              <caret line="51" column="52" lean-forward="true" selection-start-line="46" selection-start-column="8" selection-end-line="51" selection-end-column="52" />
+              <caret line="51" column="50" selection-start-line="51" selection-start-column="26" selection-end-line="51" selection-end-column="50" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#494#495#0" expanded="true" />
@@ -98,11 +119,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/ItemTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="493">
-              <caret line="29" column="50" selection-start-line="29" selection-start-column="50" selection-end-line="29" selection-end-column="50" />
+            <state relative-caret-position="527">
+              <caret line="31" selection-start-line="31" selection-end-line="31" />
             </state>
           </provider>
         </entry>
@@ -115,8 +136,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/User.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1615">
-              <caret line="95" column="45" selection-start-line="95" selection-start-column="45" selection-end-line="95" selection-end-column="45" />
+            <state relative-caret-position="237">
+              <caret line="63" column="77" selection-start-line="63" selection-start-column="30" selection-end-line="63" selection-end-column="77" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#1622#1623#0" expanded="true" />
@@ -126,9 +147,25 @@
           </provider>
         </entry>
       </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/UserTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="441">
+              <caret line="98" column="44" selection-start-line="98" selection-start-column="44" selection-end-line="98" selection-end-column="44" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/users.txt">
-          <provider selected="true" editor-type-id="text-editor" />
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <caret column="17" lean-forward="true" selection-start-column="9" selection-end-column="17" />
+            </state>
+          </provider>
         </entry>
       </file>
     </leaf>
@@ -157,16 +194,17 @@
         <option value="$PROJECT_DIR$/src/buySmartGUI.form" />
         <option value="$PROJECT_DIR$/src/Login.java" />
         <option value="$PROJECT_DIR$/src/BuySmartGUI.java" />
+        <option value="$PROJECT_DIR$/src/ItemTest.java" />
+        <option value="$PROJECT_DIR$/src/LoginTest.java" />
         <option value="$PROJECT_DIR$/src/User.java" />
         <option value="$PROJECT_DIR$/users.txt" />
-        <option value="$PROJECT_DIR$/src/LoginTest.java" />
-        <option value="$PROJECT_DIR$/src/ItemTest.java" />
+        <option value="$PROJECT_DIR$/src/UserTest.java" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="233" />
-    <option name="y" value="-29" />
+    <option name="x" value="929" />
+    <option name="y" value="-15" />
     <option name="width" value="1400" />
     <option name="height" value="1000" />
   </component>
@@ -204,7 +242,7 @@
     <property name="UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.SHOW" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1552605676471" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1552616442153" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit3" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.Arquillian JUnit4" value="" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit3" value="junit.framework.TestCase" />
@@ -242,7 +280,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.ItemTest">
+  <component name="RunManager" selected="JUnit.UserTest">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
       <module name="BuySmartSystem" />
@@ -262,15 +300,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="LoginTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="BuySmartSystem" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="LoginTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="LoginTest.checkLogin" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="BuySmartSystem" />
       <option name="PACKAGE_NAME" value="" />
@@ -281,12 +310,32 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="LoginTest.testCheckLogin" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="BuySmartSystem" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="LoginTest" />
+      <option name="METHOD_NAME" value="testCheckLogin" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="UserTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="BuySmartSystem" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="UserTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.ItemTest" />
-        <item itemvalue="JUnit.LoginTest" />
-        <item itemvalue="Application.Main" />
+        <item itemvalue="JUnit.UserTest" />
+        <item itemvalue="JUnit.LoginTest.testCheckLogin" />
         <item itemvalue="JUnit.LoginTest.checkLogin" />
+        <item itemvalue="Application.Main" />
+        <item itemvalue="JUnit.ItemTest" />
       </list>
     </recent_temporary>
   </component>
@@ -309,7 +358,7 @@
       <workItem from="1552511578884" duration="6609000" />
       <workItem from="1552522507463" duration="2459000" />
       <workItem from="1552529131016" duration="3041000" />
-      <workItem from="1552584836023" duration="17249000" />
+      <workItem from="1552584836023" duration="27359000" />
     </task>
     <task id="LOCAL-00001" summary="Fixed the ugly buttons">
       <created>1552532053995</created>
@@ -343,33 +392,45 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="LoginTest - 2019.03.14 at 13h 36m 08s.xml">
-      <configuration name="LoginTest" configurationId="JUnit" />
+    <history-entry file="UserTest - 2019.03.14 at 22h 02m 10s.xml">
+      <configuration name="UserTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="LoginTest - 2019.03.14 at 13h 43m 34s.xml">
-      <configuration name="LoginTest" configurationId="JUnit" />
+    <history-entry file="UserTest - 2019.03.14 at 22h 02m 28s.xml">
+      <configuration name="UserTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="LoginTest - 2019.03.14 at 19h 06m 40s.xml">
-      <configuration name="LoginTest" configurationId="JUnit" />
+    <history-entry file="UserTest - 2019.03.14 at 22h 02m 54s.xml">
+      <configuration name="UserTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="ItemTest - 2019.03.14 at 19h 15m 51s.xml">
-      <configuration name="ItemTest" configurationId="JUnit" />
+    <history-entry file="UserTest - 2019.03.14 at 22h 03m 01s.xml">
+      <configuration name="UserTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="ItemTest - 2019.03.14 at 19h 16m 24s.xml">
-      <configuration name="ItemTest" configurationId="JUnit" />
+    <history-entry file="UserTest - 2019.03.14 at 22h 13m 13s.xml">
+      <configuration name="UserTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="ItemTest - 2019.03.14 at 19h 19m 12s.xml">
-      <configuration name="ItemTest" configurationId="JUnit" />
+    <history-entry file="UserTest - 2019.03.14 at 22h 14m 03s.xml">
+      <configuration name="UserTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="UserTest - 2019.03.14 at 22h 14m 40s.xml">
+      <configuration name="UserTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="UserTest - 2019.03.14 at 22h 14m 58s.xml">
+      <configuration name="UserTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="UserTest - 2019.03.14 at 22h 15m 33s.xml">
+      <configuration name="UserTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="UserTest - 2019.03.14 at 22h 15m 58s.xml">
+      <configuration name="UserTest" configurationId="JUnit" />
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="72196000" />
+    <option name="totallyTimeSpent" value="82306000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1096" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.21215352" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.21215352" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -378,7 +439,7 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32872504" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.24091381" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.403946" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.3997923" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -459,13 +520,6 @@
     <entry file="file://$PROJECT_DIR$/pictures/iPhone 4.png">
       <provider selected="true" editor-type-id="images" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/.classpath">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="58" selection-start-line="6" selection-start-column="58" selection-end-line="6" selection-end-column="58" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/.gitattributes">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -485,13 +539,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="5" selection-start-line="7" selection-start-column="5" selection-end-line="7" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://C:/Program Files/Java/jdk-10.0.2/lib/src.zip!/java.base/java/lang/System.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="235">
@@ -499,10 +546,27 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/Login.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="14" column="76" selection-start-line="14" selection-start-column="76" selection-end-line="14" selection-end-column="76" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="5" selection-start-line="7" selection-start-column="5" selection-end-line="7" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/BuySmartGUI.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-68">
-          <caret line="340" column="50" lean-forward="true" selection-start-line="340" selection-start-column="50" selection-end-line="340" selection-end-column="50" />
+        <state relative-caret-position="335">
+          <caret line="82" column="62" selection-start-line="82" selection-start-column="62" selection-end-line="82" selection-end-column="62" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#2911#3075#0" expanded="true" />
@@ -520,10 +584,52 @@
         </state>
       </provider>
     </entry>
+    <entry file="jar://$PROJECT_DIR$/lib/junit-3.8.2.jar!/junit/textui/TestRunner.class">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ItemTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="527">
+          <caret line="31" selection-start-line="31" selection-end-line="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Item.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="530">
+          <caret line="51" column="50" selection-start-line="51" selection-start-column="26" selection-end-line="51" selection-end-column="50" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#494#495#0" expanded="true" />
+            <element signature="e#526#527#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/LoginTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="13" column="18" selection-start-line="13" selection-start-column="18" selection-end-line="13" selection-end-column="18" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/buySmartGUI.form">
+      <provider selected="true" editor-type-id="ui-designer" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.classpath">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="59" selection-start-line="6" selection-start-column="59" selection-end-line="6" selection-end-column="59" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/User.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1615">
-          <caret line="95" column="45" selection-start-line="95" selection-start-column="45" selection-end-line="95" selection-end-column="45" />
+        <state relative-caret-position="237">
+          <caret line="63" column="77" selection-start-line="63" selection-start-column="30" selection-end-line="63" selection-end-column="77" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#1622#1623#0" expanded="true" />
@@ -538,47 +644,19 @@
           <caret line="14" column="45" lean-forward="true" selection-end-line="27234" selection-end-column="2" />
         </state>
       </provider>
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Login.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="14" column="76" selection-start-line="14" selection-start-column="76" selection-end-line="14" selection-end-column="76" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state>
+          <caret column="17" lean-forward="true" selection-start-column="9" selection-end-column="17" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/LoginTest.java">
+    <entry file="file://$PROJECT_DIR$/src/UserTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="14" column="8" lean-forward="true" selection-start-line="14" selection-start-column="8" selection-end-line="14" selection-end-column="56" />
+        <state relative-caret-position="441">
+          <caret line="98" column="44" selection-start-line="98" selection-start-column="44" selection-end-line="98" selection-end-column="44" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Item.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="530">
-          <caret line="51" column="52" lean-forward="true" selection-start-line="46" selection-start-column="8" selection-end-line="51" selection-end-column="52" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#494#495#0" expanded="true" />
-            <element signature="e#526#527#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/buySmartGUI.form">
-      <provider selected="true" editor-type-id="ui-designer" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ItemTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="493">
-          <caret line="29" column="50" selection-start-line="29" selection-start-column="50" selection-end-line="29" selection-end-column="50" />
         </state>
       </provider>
     </entry>

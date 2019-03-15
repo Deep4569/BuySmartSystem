@@ -30,8 +30,4 @@ public class ItemTest extends TestCase {
         assertFalse(item.getSeller().equals("Apple"));
     }
 
-    public void testGetImage() {
-        assertTrue(item.getPrice() == 250.0);
-        assertFalse(item.getPrice() == 50.51);
-    }
 }

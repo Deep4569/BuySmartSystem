@@ -43,11 +43,13 @@ public class User {
                 write.newLine();
                 write.close();
                 read.reset();
+                currentUser = username;
                 return true;
             } catch (IOException e) {
                 e.printStackTrace();
             }
         }
+        currentUser = username;
         return false;
     }
 
@@ -59,7 +61,7 @@ public class User {
 
     public String getPassword() throws IOException {
         String[] data = getData(currentUser);
-        return data != null ? data[1] : null;
+        return data != null ? new String(Base64.getDecoder().decode(data[1])) : null;
     }
 
     public String getAddress() throws IOException {
@@ -73,7 +75,6 @@ public class User {
     }
 
     public void setUsername(String data) throws IOException {
-        System.out.println("Changing Username to: "+data);
         changeData(0, data);
     }
 
@@ -112,11 +113,9 @@ public class User {
         read.reset();
     }
 
-
-
-
-
     public String[] getData(String user) throws IOException {
+        in = new FileReader("users.txt");
+        read = new BufferedReader(in);
         read.mark(1024000);
         while ((line = read.readLine()) != null) {
             String[] split = line.split(":");
@@ -128,15 +127,5 @@ public class User {
         read.reset();
         return null;
     }
-
-
-
-
-
-
-
-
-
-
 
 }

@@ -1,1 +1,2 @@
-username:cGFzc3dvcmQ=:123 test rd:123-456-7890
+username:cGFzc3dvcmQ=:test:123-456-7890
+testUser:dGVzdA==:1234 test rd:123-456-7890
