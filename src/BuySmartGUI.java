@@ -22,7 +22,7 @@ public class BuySmartGUI extends JFrame {
     private JButton checkoutButton;
     private JTextField searchTextField;
     private JList list1;
-    private JScrollPane yeet;
+    private JScrollPane displayScroll;
     private JPanel Items;
     private JPanel pic;
     private JPanel cart;
@@ -41,6 +41,8 @@ public class BuySmartGUI extends JFrame {
     private String[] companies = {"Walmart", "Apple", "BestBuy", "Amazon", "Ebay", "Costco", "Rogers", "Bell"};
     private String[] possibleSearches = {"iPhone 3G", "iPhone 3GS", "iPhone 4", "iPhone 4S", "iPhone 5", "iPhone 5c", "iPhone 5s", "iPhone 6", "iPhone 6 Plus", "iPhone 6s", "iPhone 6s Plus", "iPhone SE",
             "iPhone 7", "iPhone 7 Plus", "iPhone 8", "iPhone 8 Plus", "iPhone X", "iPhone XR", "iPhone XS", "iPhone"};
+    private String[] possibleSearchesLower = {"iphone 3g", "iphone 3gs", "iphone 4", "iphone 4s", "iphone 5", "iphone 5c", "iphone 5s", "iphone 6", "iphone 6 plus", "iphone 6s", "iphone 6s plus", "iphone se",
+            "iphone 7", "iphone 7 plus", "iphone 8", "iphone 8 plus", "iphone x", "iphone xr", "iphone xs", "iphone"};
     ArrayList<Item> cartList = new ArrayList<>();
     private String[] options = {"Signup", "Login", "Supplier Login", "Admin Login"};
 
@@ -52,9 +54,9 @@ public class BuySmartGUI extends JFrame {
     public BuySmartGUI() throws IOException {
         add(Root);
         Root.setBackground(Color.white);
-        setSize(800, 500);
+        setSize(900, 750);
         Items.setLayout(new BoxLayout(Items, BoxLayout.Y_AXIS));
-        yeet.getVerticalScrollBar().setUnitIncrement(16);
+        displayScroll.getVerticalScrollBar().setUnitIncrement(16);
         shopList.getVerticalScrollBar().setUnitIncrement(16);
         blackLine = BorderFactory.createMatteBorder(0, 0, 1, 0, Color.BLACK);
         blackLineLeft = BorderFactory.createMatteBorder(0, 1, 0, 0, Color.BLACK);
@@ -78,28 +80,27 @@ public class BuySmartGUI extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
 
-                if (Arrays.asList(possibleSearches).contains(searchTextField.getText())) {
+                if (Arrays.asList(possibleSearchesLower).contains(searchTextField.getText().toLowerCase())) {
                     pic.removeAll();
                     pic.add(dropdownHolder, BorderLayout.SOUTH);
                     Items.removeAll();
-                    Item x = new Item(searchTextField.getText());
+                    Item x = new Item(possibleSearches[Arrays.asList(possibleSearchesLower).indexOf(searchTextField.getText().toLowerCase())]);
                     pic.add(x.getImage(), BorderLayout.CENTER);
 
-                    if (searchTextField.getText().equals("iPhone")) {
+                    if (searchTextField.getText().toLowerCase().equals("iphone")) {
                         int count = 0;
                         for (int i = 0; i < companies.length; i++) {
                             for (int j = 0; j < possibleSearches.length - 1; j++) {
-                                addItem(new Item(20.0, "Fuck Apple", i + "", possibleSearches[j], companies[i]), count++);
+                                addItem(new Item(500.0, "iPhone by Apple", i + "", possibleSearches[j], companies[i]), count++);
                             }
                         }
                     } else {
-
-                        String product = searchTextField.getText();
+                        String product = possibleSearches[Arrays.asList(possibleSearchesLower).indexOf(searchTextField.getText().toLowerCase())];
                         for (int i = 0; i < companies.length; i++) {
-                            addItem(new Item(20.0, "Fuck Apple", i + "", product, companies[i]), i);
+                            addItem(new Item(500.0, "iPhone by Apple", i + "", product, companies[i]), i);
                         }
                     }
-                    yeet.getViewport().setViewPosition(new Point(0, 0));
+                    displayScroll.getViewport().setViewPosition(new Point(0, 0));
                     revalidate();
 
                 } else {
@@ -143,14 +144,54 @@ public class BuySmartGUI extends JFrame {
                     controls.add(phone);
 
                     popup.add(controls, BorderLayout.CENTER);
-                    JOptionPane.showConfirmDialog(Root, popup, "Signup", JOptionPane.OK_CANCEL_OPTION);
+                    int prompt = JOptionPane.showConfirmDialog(Root, popup, "Signup", JOptionPane.OK_CANCEL_OPTION);
+                    
+                    if (prompt == 0) {
+                        String pass = new String(password.getPassword());
+                        String confirmPassword = new String(password2.getPassword());
+                        if (user.checkPassword(pass, confirmPassword)) {
+                            try {
+                                if (user.registerUser(username.getText(), pass, address.getText(), phone.getText())) {
+                                    JOptionPane.showMessageDialog(popup, "Signup Successful");
+                                    user.currentUser = username.getText();
+                                    JButton logout = new JButton("Logout");
+                                    logout.addActionListener(new ActionListener() {
+                                        @Override
+                                        public void actionPerformed(ActionEvent e) {
+                                            dropdownHolder.removeAll();
+                                            dropdownHolder.add(dropdown);
+                                            display.remove(addItem);
+                                            user.currentUser = null;
+                                            revalidate();
+                                        }
+                                    });
+                                    dropdownHolder.add(logout);
+                                    dropdownHolder.remove(dropdown);
+                                    addItemButton();
+                                    revalidate();
+                                } else {
+                                    JOptionPane.showMessageDialog(popup, "Username Taken or your username contains Special Characters");
+                                }
+                            } catch (IOException e1) {
+                                e1.printStackTrace();
+                            }
+                        } else {
+                            JOptionPane.showMessageDialog(popup, "The two passwords do not match. Please try again.");
+                        }
+                    }
+                }
+                //TODO: check for the different types of login if time permits
+                else {
+                    popup.add(label, BorderLayout.WEST);
+
+                    popup.add(controls, BorderLayout.CENTER);
+                    int prompt = JOptionPane.showConfirmDialog(Root, popup, "login", JOptionPane.OK_CANCEL_OPTION);
                     String pass = new String(password.getPassword());
-                    String confirmPassword = new String(password2.getPassword());
-                    if (user.checkPassword(pass, confirmPassword)) {
+                    if (prompt == 0) {
                         try {
-                            if (user.registerUser(username.getText(), pass, address.getText(), phone.getText())) {
-                                JOptionPane.showMessageDialog(popup, "Signup Successful");
-                                user.currentUser = username.getText();
+                            if (login.checkLogin(username.getText(), pass)) {
+                                JOptionPane.showMessageDialog(popup, "Login Successful");
+                                addItemButton();
                                 JButton logout = new JButton("Logout");
                                 logout.addActionListener(new ActionListener() {
                                     @Override
@@ -164,53 +205,16 @@ public class BuySmartGUI extends JFrame {
                                 });
                                 dropdownHolder.add(logout);
                                 dropdownHolder.remove(dropdown);
-                                addItemButton();
+                                user.currentUser = login.username;
                                 revalidate();
                             } else {
-                                JOptionPane.showMessageDialog(popup, "Username Taken or your username contains Special Characters");
+                                JOptionPane.showMessageDialog(popup, "Login Failed. Try Again.");
                             }
                         } catch (IOException e1) {
                             e1.printStackTrace();
                         }
-                    } else {
-                        JOptionPane.showMessageDialog(popup, "The two passwords do not match. Please try again.");
+
                     }
-                }
-
-                //TODO: check for the different types of login if time permits
-                else {
-                    popup.add(label, BorderLayout.WEST);
-
-                    popup.add(controls, BorderLayout.CENTER);
-                    JOptionPane.showConfirmDialog(Root, popup, "login", JOptionPane.OK_CANCEL_OPTION);
-                    String pass = new String(password.getPassword());
-
-                    try {
-                        if (login.checkLogin(username.getText(), pass)) {
-                            JOptionPane.showMessageDialog(popup, "Login Successful");
-                            addItemButton();
-                            JButton logout = new JButton("Logout");
-                            logout.addActionListener(new ActionListener() {
-                                @Override
-                                public void actionPerformed(ActionEvent e) {
-                                    dropdownHolder.removeAll();
-                                    dropdownHolder.add(dropdown);
-                                    display.remove(addItem);
-                                    user.currentUser = null;
-                                    revalidate();
-                                }
-                            });
-                            dropdownHolder.add(logout);
-                            dropdownHolder.remove(dropdown);
-                            user.currentUser = login.username;
-                            revalidate();
-                        } else {
-                            JOptionPane.showMessageDialog(popup, "Login Failed. Try Again.");
-                        }
-                    } catch (IOException e1) {
-                        e1.printStackTrace();
-                    }
-
                 }
             }
         });
@@ -298,63 +302,72 @@ public class BuySmartGUI extends JFrame {
                 controls.add(choices);
                 popup.add(label, BorderLayout.WEST);
                 popup.add(controls, BorderLayout.CENTER);
-                JOptionPane.showConfirmDialog(Root, popup, "Edit Profile", JOptionPane.OK_CANCEL_OPTION);
+                int prompt = JOptionPane.showConfirmDialog(Root, popup, "Edit Profile", JOptionPane.OK_CANCEL_OPTION);
 
-
-                int idx = choices.getSelectedIndex();
-                popup.removeAll();
-                label.removeAll();
-                controls.removeAll();
-                label = new JPanel(new GridLayout(0, 1, 2, 2));
-                String[] x = {"Username", "Password", "Address", "Phone Number"};
-                label.add(new JLabel("New " + x[idx]));
-                controls = new JPanel(new GridLayout(0, 1, 2, 2));
-                if (idx == 0 || idx == 2) {
-                    JTextField update = new JTextField();
-                    controls.add(update);
-                    popup.add(label, BorderLayout.WEST);
-                    popup.add(controls, BorderLayout.CENTER);
-                    JOptionPane.showConfirmDialog(Root, popup, "New " + x[idx], JOptionPane.OK_CANCEL_OPTION);
-                    try {
-                        if (idx == 0) {
-                            user.setUsername(update.getText());
-                        } else {
-                            user.setAddress(update.getText());
+                if (prompt == 0) {
+                    int idx = choices.getSelectedIndex();
+                    popup.removeAll();
+                    label.removeAll();
+                    controls.removeAll();
+                    label = new JPanel(new GridLayout(0, 1, 2, 2));
+                    String[] x = {"Username", "Password", "Address", "Phone Number"};
+                    label.add(new JLabel("New " + x[idx]));
+                    controls = new JPanel(new GridLayout(0, 1, 2, 2));
+                    if (idx == 0 || idx == 2) {
+                        JTextField update = new JTextField();
+                        controls.add(update);
+                        popup.add(label, BorderLayout.WEST);
+                        popup.add(controls, BorderLayout.CENTER);
+                        int p = JOptionPane.showConfirmDialog(Root, popup, "New " + x[idx], JOptionPane.OK_CANCEL_OPTION);
+                        if (p == 0) {
+                            try {
+                                if (idx == 0) {
+                                    user.setUsername(update.getText());
+                                } else {
+                                    user.setAddress(update.getText());
+                                }
+                            } catch (IOException e1) {
+                                e1.printStackTrace();
+                            }
                         }
-                    } catch (IOException e1) {
-                        e1.printStackTrace();
                     }
-                } else if (idx == 1) {
-                    JPasswordField password = new JPasswordField();
-                    controls.add(password);
+                    else if (idx == 1) {
+                        JPasswordField password = new JPasswordField();
+                        controls.add(password);
 
-                    popup.add(label, BorderLayout.WEST);
-                    popup.add(controls, BorderLayout.CENTER);
+                        popup.add(label, BorderLayout.WEST);
+                        popup.add(controls, BorderLayout.CENTER);
 
-                    JOptionPane.showConfirmDialog(Root, popup, "New " + x[idx], JOptionPane.OK_CANCEL_OPTION);
-                    try {
-                        user.setPassword(new String(password.getPassword()));
-                    } catch (IOException e1) {
-                        e1.printStackTrace();
+                        int p = JOptionPane.showConfirmDialog(Root, popup, "New " + x[idx], JOptionPane.OK_CANCEL_OPTION);
+                        if (p == 0) {
+                            try {
+                                user.setPassword(new String(password.getPassword()));
+                            } catch (IOException e1) {
+                                e1.printStackTrace();
+                            }
+                        }
                     }
-                } else {
-                    MaskFormatter mask = null;
-                    try {
-                        mask = new MaskFormatter("###-###-####");
-                    } catch (ParseException e1) {
-                        e1.printStackTrace();
-                    }
-                    JFormattedTextField phone = new JFormattedTextField(mask);
-                    controls.add(phone);
+                    else {
+                        MaskFormatter mask = null;
+                        try {
+                            mask = new MaskFormatter("###-###-####");
+                        } catch (ParseException e1) {
+                            e1.printStackTrace();
+                        }
+                        JFormattedTextField phone = new JFormattedTextField(mask);
+                        controls.add(phone);
 
-                    popup.add(label, BorderLayout.WEST);
-                    popup.add(controls, BorderLayout.CENTER);
+                        popup.add(label, BorderLayout.WEST);
+                        popup.add(controls, BorderLayout.CENTER);
 
-                    JOptionPane.showConfirmDialog(Root, popup, "New" + x[idx], JOptionPane.OK_CANCEL_OPTION);
-                    try {
-                        user.setPhone(phone.getText());
-                    } catch (IOException e1) {
-                        e1.printStackTrace();
+                        int p = JOptionPane.showConfirmDialog(Root, popup, "New" + x[idx], JOptionPane.OK_CANCEL_OPTION);
+                        if (p == 0) {
+                            try {
+                                user.setPhone(phone.getText());
+                            } catch (IOException e1) {
+                                e1.printStackTrace();
+                            }
+                        }
                     }
                 }
             }
@@ -450,15 +463,15 @@ public class BuySmartGUI extends JFrame {
         display.setBackground(new Color(-1));
         display.setForeground(new Color(-1));
         Root.add(display, new GridConstraints(0, 1, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_BOTH, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, null, null, null, 0, false));
-        yeet = new JScrollPane();
-        yeet.setBackground(new Color(-1));
-        yeet.setForeground(new Color(-1));
-        display.add(yeet, BorderLayout.CENTER);
+        displayScroll = new JScrollPane();
+        displayScroll.setBackground(new Color(-1));
+        displayScroll.setForeground(new Color(-1));
+        display.add(displayScroll, BorderLayout.CENTER);
         Items = new JPanel();
         Items.setLayout(new GridLayoutManager(1, 1, new Insets(0, 0, 0, 0), -1, 5, true, false));
         Items.setBackground(new Color(-1));
         Items.setForeground(new Color(-1));
-        yeet.setViewportView(Items);
+        displayScroll.setViewportView(Items);
     }
 
     /**

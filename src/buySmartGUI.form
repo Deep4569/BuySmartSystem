@@ -173,7 +173,7 @@
           <color color="-16777216"/>
         </border>
         <children>
-          <scrollpane id="7fe4a" binding="yeet">
+          <scrollpane id="7fe4a" binding="displayScroll">
             <constraints border-constraint="Center"/>
             <properties>
               <background color="-1"/>
