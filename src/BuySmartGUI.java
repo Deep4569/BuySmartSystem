@@ -81,11 +81,11 @@ public class BuySmartGUI extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
 
-                if (Arrays.asList(possibleSearchesLower).contains(searchTextField.getText().toLowerCase())) {
+                if (Arrays.asList(possibleSearchesLower).contains(searchTextField.getText().toLowerCase().trim())) {
                     pic.removeAll();
                     pic.add(dropdownHolder, BorderLayout.SOUTH);
                     Items.removeAll();
-                    Item x = new Item(possibleSearches[Arrays.asList(possibleSearchesLower).indexOf(searchTextField.getText().toLowerCase())]);
+                    Item x = new Item(possibleSearches[Arrays.asList(possibleSearchesLower).indexOf(searchTextField.getText().toLowerCase().trim())]);
                     pic.add(x.getImage(), BorderLayout.CENTER);
 
                     if (searchTextField.getText().toLowerCase().equals("iphone")) {
@@ -96,7 +96,7 @@ public class BuySmartGUI extends JFrame {
                             }
                         }
                     } else {
-                        String product = possibleSearches[Arrays.asList(possibleSearchesLower).indexOf(searchTextField.getText().toLowerCase())];
+                        String product = possibleSearches[Arrays.asList(possibleSearchesLower).indexOf(searchTextField.getText().toLowerCase().trim())];
                         for (int i = 0; i < companies.length; i++) {
                             addItem(new Item(500.0, "iPhone by Apple", i + "", product, companies[i]), i);
                         }
