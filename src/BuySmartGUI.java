@@ -13,8 +13,9 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.io.IOException;
 import java.text.ParseException;
-import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 
 public class BuySmartGUI extends JFrame {
 
@@ -43,7 +44,7 @@ public class BuySmartGUI extends JFrame {
             "iPhone 7", "iPhone 7 Plus", "iPhone 8", "iPhone 8 Plus", "iPhone X", "iPhone XR", "iPhone XS", "iPhone"};
     private String[] possibleSearchesLower = {"iphone 3g", "iphone 3gs", "iphone 4", "iphone 4s", "iphone 5", "iphone 5c", "iphone 5s", "iphone 6", "iphone 6 plus", "iphone 6s", "iphone 6s plus", "iphone se",
             "iphone 7", "iphone 7 plus", "iphone 8", "iphone 8 plus", "iphone x", "iphone xr", "iphone xs", "iphone"};
-    ArrayList<Item> cartList = new ArrayList<>();
+    Map<Item, Integer> cartList = new HashMap<Item, Integer>();
     private String[] options = {"Signup", "Login", "Supplier Login", "Admin Login"};
 
     private int total = 0;
@@ -145,7 +146,7 @@ public class BuySmartGUI extends JFrame {
 
                     popup.add(controls, BorderLayout.CENTER);
                     int prompt = JOptionPane.showConfirmDialog(Root, popup, "Signup", JOptionPane.OK_CANCEL_OPTION);
-                    
+
                     if (prompt == 0) {
                         String pass = new String(password.getPassword());
                         String confirmPassword = new String(password2.getPassword());
@@ -219,6 +220,39 @@ public class BuySmartGUI extends JFrame {
             }
         });
 
+        checkoutButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (user.currentUser == null)
+                    JOptionPane.showMessageDialog(popup, "Please Login/Register before checkout");
+                else {
+                    popup.removeAll();
+                    JPanel label = new JPanel(new GridLayout(0, 1, 2, 2));
+                    label.add(new JLabel("Payment"));
+                    label.add(new JLabel("Shipping Method"));
+                    popup.add(label, BorderLayout.WEST);
+                    JPanel controls = new JPanel(new GridLayout(2, 2, 2, 2));
+                    ButtonGroup group1 = new ButtonGroup();
+                    ButtonGroup group2 = new ButtonGroup();
+                    JRadioButton b1 = new JRadioButton("Credit Card");
+                    JRadioButton b2 = new JRadioButton("PayPal");
+                    JRadioButton b3 = new JRadioButton("Standard");
+                    JRadioButton b4 = new JRadioButton("Express");
+                    group1.add(b1);
+                    group1.add(b2);
+                    group2.add(b3);
+                    group2.add(b4);
+                    controls.add(b1);
+                    controls.add(b2);
+                    controls.add(b3);
+                    controls.add(b4);
+                    popup.add(controls, BorderLayout.CENTER);
+                    JOptionPane.showConfirmDialog(Root, popup, "Checkout", JOptionPane.OK_CANCEL_OPTION);
+                }
+            }
+        });
+
+
     }
 
     public void addItem(Item i, int num) {
@@ -250,29 +284,57 @@ public class BuySmartGUI extends JFrame {
 
     public void addToCart(Item i) {
         total = 0;
-        cartList.add(i);
-
+        if (cartList.containsKey(i)) {
+            int c = cartList.get(i);
+            cartList.put(i, ++c);
+        } else {
+            cartList.put(i, 1);
+        }
         shoppingList.removeAll();
         shoppingList.revalidate();
 
-        for (Item item : cartList) {
+        for (Map.Entry<Item, Integer> entry : cartList.entrySet()) {
             JPanel stuff = new JPanel();
             stuff.setLayout(new BorderLayout());
-            JTextArea shoppingCart = new JTextArea(item.getName() + "\n");
-            shoppingCart.append("(" + item.getSeller() + ")\n");
+            JTextArea shoppingCart = new JTextArea(entry.getKey().getName() + "\n");
+            shoppingCart.append("(" + entry.getKey().getSeller() + ")\n");
             shoppingCart.append("\n");
+            shoppingCart.append("Quantity: " + entry.getValue());
+            shoppingCart.append("\n");
+            shoppingCart.setDisabledTextColor(new Color(0, 0, 0));
+            shoppingCart.setEnabled(false);
+            shoppingCart.setBorder(blackLine);
             JButton delete = new JButton("Delete");
+
+            shoppingCart.addMouseListener(new MouseAdapter() {
+                @Override
+                public void mouseClicked(MouseEvent e) {
+                    super.mouseClicked(e);
+                    pic.removeAll();
+                    pic.add(dropdownHolder, BorderLayout.SOUTH);
+                    pic.add(entry.getKey().getImage(), BorderLayout.CENTER);
+                    repaint();
+                    revalidate();
+                }
+            });
+
+
             delete.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
-                    if (shoppingList.getComponents().length == 1) {
-                        shoppingList.removeAll();
-                        cartList.remove(item);
-                    } else {
+                    if (cartList.get(entry.getKey()) == 1) {
                         shoppingList.remove(stuff);
-                        cartList.remove(item);
+                        cartList.remove(entry.getKey());
+                    } else {
+                        cartList.put(entry.getKey(), entry.getValue() - 1);
+                        shoppingCart.setText(null);
+                        shoppingCart.append(entry.getKey().getName() + "\n(" + entry.getKey().getSeller() + ")\n");
+                        shoppingCart.append("\n");
+                        shoppingCart.append("Quantity: " + entry.getValue());
+                        shoppingCart.append("\n");
+
                     }
-                    total -= item.getPrice();
+                    total -= entry.getKey().getPrice();
                     price.setText(null);
                     price.append("TOTAL: $" + total);
                     revalidate();
@@ -282,7 +344,7 @@ public class BuySmartGUI extends JFrame {
             stuff.add(shoppingCart, BorderLayout.CENTER);
             stuff.add(delete, BorderLayout.EAST);
             shoppingList.add(stuff);
-            total += item.getPrice();
+            total += entry.getKey().getPrice() * entry.getValue();
         }
 
         price.setText(null);
@@ -330,8 +392,7 @@ public class BuySmartGUI extends JFrame {
                                 e1.printStackTrace();
                             }
                         }
-                    }
-                    else if (idx == 1) {
+                    } else if (idx == 1) {
                         JPasswordField password = new JPasswordField();
                         controls.add(password);
 
@@ -346,8 +407,7 @@ public class BuySmartGUI extends JFrame {
                                 e1.printStackTrace();
                             }
                         }
-                    }
-                    else {
+                    } else {
                         MaskFormatter mask = null;
                         try {
                             mask = new MaskFormatter("###-###-####");
