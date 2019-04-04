@@ -32,10 +32,10 @@ public class BuySmartGUI extends JFrame {
     private JTextArea price;
     private JScrollPane shopList;
     private JPanel shoppingList;
-    private JComboBox dropdown;
+    private JComboBox<String> dropdown;
     private JPanel dropdownHolder;
     private JButton addItem;
-    private Border blackLine, blackLineRight, blackLineLeft;
+    private Border blackLine;
 
     private JPanel popup = new JPanel(new BorderLayout(5, 5));
 
@@ -44,13 +44,12 @@ public class BuySmartGUI extends JFrame {
             "iPhone 7", "iPhone 7 Plus", "iPhone 8", "iPhone 8 Plus", "iPhone X", "iPhone XR", "iPhone XS", "iPhone"};
     private String[] possibleSearchesLower = {"iphone 3g", "iphone 3gs", "iphone 4", "iphone 4s", "iphone 5", "iphone 5c", "iphone 5s", "iphone 6", "iphone 6 plus", "iphone 6s", "iphone 6s plus", "iphone se",
             "iphone 7", "iphone 7 plus", "iphone 8", "iphone 8 plus", "iphone x", "iphone xr", "iphone xs", "iphone"};
-    Map<Item, Integer> cartList = new HashMap<Item, Integer>();
-    private String[] options = {"Signup", "Login", "Supplier Login", "Admin Login"};
+    private Map<Item, Integer> cartList = new HashMap<Item, Integer>();
 
     private int total = 0;
 
-    Login login = new Login();
-    User user = new User();
+    private Login login = new Login();
+    private User user = new User();
 
     public BuySmartGUI() throws IOException {
         add(Root);
@@ -60,9 +59,10 @@ public class BuySmartGUI extends JFrame {
         displayScroll.getVerticalScrollBar().setUnitIncrement(16);
         shopList.getVerticalScrollBar().setUnitIncrement(16);
         blackLine = BorderFactory.createMatteBorder(0, 0, 1, 0, Color.BLACK);
-        blackLineLeft = BorderFactory.createMatteBorder(0, 1, 0, 0, Color.BLACK);
-        blackLineRight = BorderFactory.createMatteBorder(0, 0, 0, 1, Color.BLACK);
-        dropdown.setModel(new DefaultComboBoxModel(options));
+        Border blackLineLeft = BorderFactory.createMatteBorder(0, 1, 0, 0, Color.BLACK);
+        Border blackLineRight = BorderFactory.createMatteBorder(0, 0, 0, 1, Color.BLACK);
+        String[] options = {"Signup", "Login", "Supplier Login", "Admin Login"};
+        dropdown.setModel(new DefaultComboBoxModel<>(options));
         dropdownHolder.setLayout(new BorderLayout());
         dropdownHolder.add(dropdown, BorderLayout.CENTER);
 
@@ -255,7 +255,7 @@ public class BuySmartGUI extends JFrame {
 
     }
 
-    public void addItem(Item i, int num) {
+    private void addItem(Item i, int num) {
 
         JPanel x = new JPanel();
         x.setLayout(new BorderLayout());
@@ -509,7 +509,7 @@ public class BuySmartGUI extends JFrame {
         dropdownHolder = new JPanel();
         dropdownHolder.setLayout(new BorderLayout(0, 0));
         pic.add(dropdownHolder, BorderLayout.SOUTH);
-        dropdown = new JComboBox();
+        dropdown = new JComboBox<>();
         dropdownHolder.add(dropdown, BorderLayout.CENTER);
         searchTextField = new JTextField();
         searchTextField.setBackground(new Color(-1));

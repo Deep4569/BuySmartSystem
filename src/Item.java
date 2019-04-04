@@ -17,10 +17,7 @@ public class Item {
         this.seller = seller;
     }
 
-    public Item(String name){
-        this.name = name;
-    }
-
+    public Item(String name){ this.name = name; }
 
     public double getPrice(){
         return price;

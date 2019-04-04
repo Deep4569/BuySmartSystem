@@ -8,9 +8,7 @@ public class User {
 
     FileReader in;
     FileWriter out;
-
     String currentUser = null;
-
     BufferedReader read;
     BufferedWriter write;
     String line;

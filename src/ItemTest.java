@@ -4,7 +4,6 @@ public class ItemTest extends TestCase {
 
     Item item = new Item(250.0, "Smartphone", "5", "iPhone 5", "Costco");
 
-
     public void testGetPrice() {
         assertTrue(item.getPrice() == 250.0);
         assertFalse(item.getPrice() == 50.51);
