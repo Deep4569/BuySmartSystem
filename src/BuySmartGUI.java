@@ -98,7 +98,7 @@ public class BuySmartGUI extends JFrame {
                     } else {
                         String product = possibleSearches[Arrays.asList(possibleSearchesLower).indexOf(searchTextField.getText().toLowerCase().trim())];
                         for (int i = 0; i < companies.length; i++) {
-                            addItem(new Item(500.0, "iPhone by Apple", i + "", product, companies[i]), i);
+                            addItem(new Item(500.0, "iPhone by Apple", Arrays.asList(possibleSearches).indexOf(product) + "" + i, product, companies[i]), i);
                         }
                     }
                     displayScroll.getViewport().setViewPosition(new Point(0, 0));
@@ -509,7 +509,7 @@ public class BuySmartGUI extends JFrame {
         dropdownHolder = new JPanel();
         dropdownHolder.setLayout(new BorderLayout(0, 0));
         pic.add(dropdownHolder, BorderLayout.SOUTH);
-        dropdown = new JComboBox<>();
+        dropdown = new JComboBox();
         dropdownHolder.add(dropdown, BorderLayout.CENTER);
         searchTextField = new JTextField();
         searchTextField.setBackground(new Color(-1));
